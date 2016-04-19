@@ -1,0 +1,30 @@
+{
+  "name": "vccp_static_seed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "Dev\\bash\\postinstall\\postinstall.sh",
+    "serve": "node Dev\\server\\Server.js",
+    "lint": "Dev\\bash\\lint\\lint.sh || exit 0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "compression": "^1.6.1",
+    "connect-livereload": "^0.5.4",
+    "express": "^4.13.4",
+    "grunt": "^1.0.1",
+    "method-override": "^2.3.5",
+    "net": "^1.0.2",
+    "open": "0.0.5",
+    "semistandard": "^7.0.5",
+    "serve-index": "^1.7.3",
+    "shelljs": "^0.6.0"
+  },
+  "devDependencies": {
+    "grunt-bake": "^1.7.1",
+    "load-grunt-configs": "^1.0.0-RC1"
+  }
+}
