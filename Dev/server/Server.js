@@ -10,7 +10,7 @@ var serveIndex = require('serve-index');
 var app = express();
 var config = {
   serverPort: 8999,
-  directory: 'App'
+  directory: 'Dist'
 };
 
 var Server = {

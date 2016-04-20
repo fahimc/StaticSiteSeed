@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "main.css",
+	"sources": [
+		"../../App/src/style/main.scss",
+		"../../App/src/style/core/reset.scss"
+	],
+	"mappings": "ACAA,CAAC,CAAC;EACD,OAAO,EAAC,CAAE;EACV,MAAM,EAAC,CAAE,GACT",
+	"names": []
+}
