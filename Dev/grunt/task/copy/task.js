@@ -10,20 +10,22 @@ var Task = {
 	getConfig: function () {
 		return {
 			tasks:{
-				bake: {
-					index: {
-						options: {
-						},
-						files: {
-							"Dist/index.html": "App/index.html"
-						}
+				copy: {
+					options: {
 					},
+					index: {
+						src: ['App/index.html'],
+						dest: 'Dist/index.html'
+					},
+					assets: {
+						src: ['App/assets/**'],
+						dest: 'Dist/assets/**'
+					}
 				}
 			}
 		};
 	},
 	register: function () {
-
 	}
 };
 

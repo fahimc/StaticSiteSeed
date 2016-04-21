@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var compression = require('compression');
 var serveIndex = require('serve-index');
 var app = express();
+var router = express.Router();
 var config = {
   serverPort: 8999,
   directory: 'Dist'
@@ -19,15 +20,16 @@ var Server = {
     this.findFreePort();
   },
   setup: function () {
-    app.use(compression());
-    app.use(methodOverride('X-HTTP-Method-Override'));
-    app.use(bodyParser.urlencoded({
+    router.use(compression());
+    router.use(methodOverride('X-HTTP-Method-Override'));
+    router.use(bodyParser.urlencoded({
       extended: false
     }));
-    app.use(bodyParser.json());
-    app.use(serveIndex(config.directory));
-    app.use(express.static(config.directory));
-    app.use(require('connect-livereload')());
+    router.use(bodyParser.json());
+    router.use(serveIndex(config.directory));
+    router.use(require('connect-livereload')());
+    router.use(express.static(config.directory));
+    app.use(router); 
   },
   getPortNumber: function () {
     return config.serverPort += 100;
@@ -45,13 +47,13 @@ var Server = {
     });
     server.on('listening', function (e) {
       server.close();
-      Server.start(false);
+      Server.start();
     });
   },
   start: function () {
     app.listen(config.serverPort);
     console.log('server listening at %s', config.serverPort);
-    open('http://localhost:' + config.serverPort + '/index.html');
+    open('http://localhost:' + config.serverPort);
   }
 };
 

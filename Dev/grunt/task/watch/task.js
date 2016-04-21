@@ -17,6 +17,20 @@ var Task = {
 							livereload: true
 						},
 						tasks: ['concat:js']
+					},
+					index: {
+						files: ['App/index.html'],
+						options: {
+							livereload: true
+						},
+						tasks: ['copy:index','inject']
+					},
+					templates: {
+						files: ['App/src/template/**/*.html'],
+						options: {
+							livereload: true
+						},
+						tasks: ['bake','inject']
 					}
 				}
 			}
