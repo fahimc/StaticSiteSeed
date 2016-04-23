@@ -18,12 +18,23 @@ var Task = {
 							"Dist/index.html": "App/index.html"
 						}
 					},
+				},
+				prettify: {
+					index: {
+						options: {
+							config: 'Dev/grunt/task/bake/.prettifyrc'
+						},
+						files: {
+							'Dist/index.html': ['Dist/index.html']
+						}
+					}
+					
 				}
 			}
 		};
 	},
 	register: function () {
-
+		grunt.registerTask('bake-and-format', ['bake','prettify:index']);
 	}
 };
 

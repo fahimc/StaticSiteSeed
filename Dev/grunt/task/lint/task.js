@@ -1,3 +1,4 @@
+require('shelljs/global');
 var grunt;
 var Task = {
 	options:null,
@@ -9,22 +10,13 @@ var Task = {
 	},
 	getConfig: function () {
 		return {
-			tasks:{
-				sass: {
-					options: {
-						sourceMap: true
-					},
-					dist: {
-						files: {
-							'Dist/css/main.css': 'App/src/import.scss'
-						}
-					}
-				}
-			}
-			
 		};
 	},
+	lint: function () {
+		exec('npm run lint --silent');
+	},
 	register: function () {
+		grunt.registerTask('lint',this.lint.bind(this));
 	}
 };
 

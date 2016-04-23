@@ -12,25 +12,39 @@ var Task = {
 			tasks:{
 				watch: {
 					js: {
-						files: ['App/src/js/**/*.js'],
+						files: ['App/src/component/**/js/**/*.js'],
 						options: {
 							livereload: true
 						},
 						tasks: ['concat:js']
+					},
+					libs: {
+						files: ['App/lib/**/*.js'],
+						options: {
+							livereload: true
+						},
+						tasks: ['concat:libs']
 					},
 					index: {
 						files: ['App/index.html'],
 						options: {
 							livereload: true
 						},
-						tasks: ['copy:index','inject']
+						tasks: ['bake-and-format','inject']
 					},
 					templates: {
-						files: ['App/src/template/**/*.html'],
+						files: ['App/src/component/**/template/**/*.html'],
 						options: {
 							livereload: true
 						},
-						tasks: ['bake','inject']
+						tasks: ['bake-and-format','inject']
+					},
+					style: {
+						files: ['App/src/import.scss','App/src/component/**/style/**/*.scss'],
+						options: {
+							livereload: true
+						},
+						tasks: ['sass']
 					}
 				}
 			}

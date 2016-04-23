@@ -6,7 +6,11 @@
   "scripts": {
     "postinstall": "Dev\\bash\\postinstall\\postinstall.sh",
     "serve": "node Dev\\server\\Server.js",
-    "lint": "Dev\\bash\\lint\\lint.sh || exit 0"
+    "lint": "eslint \"App\\src\\component\\**\\*.js\" \"App\\src\\component\\**\\*.html\"",
+    "lint-with-output": "eslint \"App\\src\\component\\**\\*.js\" \"App\\src\\component\\**\\*.html\" --output-file=\"Test\\report\\lint.html\""
+  },
+  "eslintConfig": {
+    "extends": "google"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +29,8 @@
   },
   "devDependencies": {
     "connect-inject": "^0.4.0",
+    "eslint": "^2.8.0",
+    "eslint-config-google": "^0.5.0",
     "grunt-bake": "^1.7.1",
     "grunt-concurrent": "^2.3.0",
     "grunt-contrib-concat": "^1.0.1",
@@ -32,6 +38,7 @@
     "grunt-contrib-jasmine": "^1.0.3",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-inject": "^0.1.1",
+    "grunt-prettify": "^0.4.0",
     "grunt-sass": "^1.1.0",
     "load-grunt-configs": "^1.0.0-RC1",
     "load-grunt-tasks": "^3.5.0"

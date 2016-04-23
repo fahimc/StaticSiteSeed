@@ -16,9 +16,14 @@ var Task = {
 						stripBanners: 'line'
 					},
 					js: {
-						src: ['App/src/js/**'],
+						src: ['App/src/component/core/js/main.js','App/src/component/**/js/**/*.js'],
 						dest: 'Dist/js/main.js'
+					},
+					libs: {
+						src: ['App/lib/**/*.js'],
+						dest: 'Dist/js/libs.js'
 					}
+
 				}
 			}
 		};

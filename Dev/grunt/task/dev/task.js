@@ -35,7 +35,7 @@ var Task = {
 	},
 	register: function () {
 		grunt.registerTask('serve',this.runServer.bind(this));
-		grunt.registerTask('dev',['copy:index','copy:assets','bake-and-format','inject','concurrent:dev']);
+		grunt.registerTask('dev',['sass','concat','copy:assets','bake-and-format','inject','concurrent:dev']);
 	}
 };
 
