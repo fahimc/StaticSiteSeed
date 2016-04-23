@@ -1,8 +1,6 @@
 (function () {
   var Main = {
-    init: function () {
-    	console.log('hello world');
-    }
+    init: function () {}
   };
 
   Main.init();

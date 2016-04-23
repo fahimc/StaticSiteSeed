@@ -3,9 +3,8 @@
 	"file": "main.css",
 	"sources": [
 		"../../App/src/import.scss",
-		"../../App/src/component/core/style/reset.scss",
-		"../../App/src/component/test/style/test.scss"
+		"../../App/src/component/core/style/reset.scss"
 	],
-	"mappings": "ACAA,CAAC,CAAC;EACD,OAAO,EAAC,CAAE;EACV,MAAM,EAAC,CAAE,GACT;;CCHD,AAAA,cAAC,EAAD,IAAC,AAAA,EACD;EACC,MAAM,EAAE,cAAe;EACvB,OAAO,EAAE,IAAK;EACd,KAAK,EAAC,KAAM,GACZ",
+	"mappings": "ACAA,CAAC,CAAC;EACA,MAAM,EAAE,CAAE;EACV,OAAO,EAAE,CAAE,GACZ",
 	"names": []
 }

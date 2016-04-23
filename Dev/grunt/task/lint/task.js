@@ -10,13 +10,29 @@ var Task = {
 	},
 	getConfig: function () {
 		return {
+			tasks: {
+				semistandard: {
+					options: {
+						format: true,
+						lint: true
+					},
+					app: {
+						src: [
+						'App/src/component/**/*.js'
+						]
+					}
+				},
+				sasslint: {
+					options: {
+						configFile: 'Dev/grunt/task/lint/config/.sass-lint.yml',
+					},
+					target: ['App/src/**/*.scss', 'App/src/component/**/style/**/*.scss']
+				}
+			}
 		};
 	},
-	lint: function () {
-		exec('npm run lint --silent');
-	},
 	register: function () {
-		grunt.registerTask('lint',this.lint.bind(this));
+		grunt.registerTask('lint',['semistandard','sasslint']);
 	}
 };
 
