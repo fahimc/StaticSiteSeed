@@ -12,7 +12,18 @@ var Task = {
 			tasks: {
 				shell: {
 					getCurrentBranch: {
-					}
+						options:{
+							callback: Task.setCurrentBranch.bind(Task)	
+						},
+						command: 'git rev-parse --abbrev-ref HEAD',
+					},
+					pullCurrentBranch: {
+						command: 'git pull origin <%= grunt.option(\"current-branch\") %>',
+						options: {
+							execOptions: {
+							}
+						}
+					},
 					getDevelopBranch: {
 						command: 'git checkout develop',
 						options: {
@@ -32,6 +43,10 @@ var Task = {
 			}
 		};
 	},
+	setCurrentBranch: function(err, stdout, stderr, cb) {
+		grunt.option('current-branch',stdout);
+		cb();
+	},
 	force: function (set) {
 		if (set === "on") {
 			grunt.option("force", true);
@@ -41,8 +56,8 @@ var Task = {
 	},
 	register: function () {
 		grunt.registerTask('getCurrentBranch', ['shell:getCurrentBranch']);
-		grunt.registerTask('pullMergeDevelop', ['getCurrentBranch','shell:getDevelopBranch', 'shell:pullDevelopBranch', ]);
-		grunt.registerTask('release', ['lint','ut','pullMergeDevelop']);
+		grunt.registerTask('pullMergeDevelop', ['shell:getDevelopBranch', 'shell:pullDevelopBranch']);
+		grunt.registerTask('release', ['lint','ut','getCurrentBranch','shell:pullCurrentBranch','pullMergeDevelop']);
 	}
 };
 
